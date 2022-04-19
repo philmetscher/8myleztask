@@ -1,0 +1,18 @@
+{
+  "name": "philmetscher/task1",
+  "description": "Task 1",
+  "type": "shopware-platform-plugin",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Task1\\": "src/"
+    }
+  },
+  "extra": {
+    "shopware-plugin-class": "Task1\\Task1",
+    "label": {
+      "de-DE": "Task1 Theme",
+      "en-GB": "Task1 Theme"
+    }
+  }
+}
