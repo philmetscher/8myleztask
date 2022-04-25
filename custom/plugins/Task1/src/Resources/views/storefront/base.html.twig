@@ -1,0 +1,8 @@
+{% sw_extends '@Storefront/storefront/base.html.twig' %}
+
+{% block base_navigation %}{% endblock %}
+
+{% block base_header_inner %}
+    {% sw_include '@Storefront/storefront/layout/header/top-bar.html.twig' %}
+    {{ parent() }}
+{% endblock %}

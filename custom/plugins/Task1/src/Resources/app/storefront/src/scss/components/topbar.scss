@@ -1,0 +1,50 @@
+.top-bar {
+  font-size: 13px;
+  font-weight: 600;
+  color: $topbar-color;
+  border-bottom: 1px solid $sw-border-color;
+  @include unitize-padding(5.25, 0);
+
+  .left {
+    float: left;
+    width: 25%;
+
+    @include media-breakpoint-up(xl) {
+      width: 20%;
+    }
+  }
+  .right {
+    float: left;
+    width: 75%;
+
+    @include media-breakpoint-up(xl) {
+      width: 80%;
+    }
+
+    #topbar-links-list {
+      display: flex;
+      justify-content: flex-end;
+      flex-flow: row wrap;
+      gap: 10px 0;
+      margin-bottom: 0;
+
+      .topbar-link-entry {
+        text-align: center;
+        width: auto;
+        margin-left: 53px;
+
+        .topbar-link {
+          color: $topbar-color;
+        }
+      }
+      .topbar-link-entry:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+  &:after {
+    display: table;
+    content: '';
+    clear: both;
+  }
+}

@@ -1,0 +1,55 @@
+{% sw_extends '@Storefront/storefront/layout/header/top-bar.html.twig' %}
+
+{% block layout_header_top_bar %}
+    {% set customFieldPath = page.header.navigation.active.customFields %}
+
+    {% set topbarLinksSet = false %}
+    {% if customFieldPath.pm_header_extras_link1
+        || customFieldPath.pm_header_extras_link2
+        || customFieldPath.pm_header_extras_link3
+        || customFieldPath.pm_header_extras_link4
+        || customFieldPath.pm_header_extras_link5
+        || customFieldPath.pm_header_extras_link6 %}
+        {% set topbarLinksSet = true %}
+    {% endif %}
+
+    <div class="top-bar d-none d-lg-block">
+        <div class="container">
+            <nav class="top-bar-nav">
+                {% block layout_header_top_bar_language %}
+                    <div class="left">{% if customFieldPath.pm_header_extras_text %}{{ customFieldPath.pm_header_extras_text }}{% endif %}</div>
+                {% endblock %}
+
+                {% block layout_header_top_bar_currency %}
+                    <div class="right">
+                        {% if topbarLinksSet %}
+                            <ul id="topbar-links-list" class="list-unstyled">
+                                {% if customFieldPath.pm_header_extras_link1 %}
+                                    <li class="topbar-link-entry"><a href="{{ customFieldPath.pm_header_extras_link1|split(';')[1] }}" class="topbar-link">{{ customFieldPath.pm_header_extras_link1|split(';')[0] }}</a></li>
+                                {% endif %}
+                                {% if customFieldPath.pm_header_extras_link2 %}
+                                    <li class="topbar-link-entry"><a href="{{ customFieldPath.pm_header_extras_link2|split(';')[1] }}" class="topbar-link">{{ customFieldPath.pm_header_extras_link2|split(';')[0] }}</a></li>
+                                {% endif %}
+                                {% if customFieldPath.pm_header_extras_link3 %}
+                                    <li class="topbar-link-entry"><a href="{{ customFieldPath.pm_header_extras_link3|split(';')[1] }}" class="topbar-link">{{ customFieldPath.pm_header_extras_link3|split(';')[0] }}</a></li>
+                                {% endif %}
+                                {% if customFieldPath.pm_header_extras_link4 %}
+                                    <li class="topbar-link-entry"><a href="{{ customFieldPath.pm_header_extras_link4|split(';')[1] }}" class="topbar-link">{{ customFieldPath.pm_header_extras_link4|split(';')[0] }}</a></li>
+                                {% endif %}
+                                {% if customFieldPath.pm_header_extras_link5 %}
+                                    <li class="topbar-link-entry"><a href="{{ customFieldPath.pm_header_extras_link5|split(';')[1] }}" class="topbar-link">{{ customFieldPath.pm_header_extras_link5|split(';')[0] }}</a></li>
+                                {% endif %}
+                                {% if customFieldPath.pm_header_extras_link6 %}
+                                    <li class="topbar-link-entry"><a href="{{ customFieldPath.pm_header_extras_link6|split(';')[1] }}" class="topbar-link">{{ customFieldPath.pm_header_extras_link6|split(';')[0] }}</a></li>
+                                {% endif %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                {% endblock %}
+
+                {# @deprecated tag:v6.5.0 - will be removed, has been moved to footer #}
+                {% block layout_header_top_bar_service %}{% endblock %}
+            </nav>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% sw_extends '@Storefront/storefront/layout/header/header.html.twig' %}
+
+{% block layout_top_bar %}{% endblock %}
+
+{% block layout_header_logo %}
+    {% block base_navigation %}
+        <div class="nav-main">
+            {% block base_navigation_inner %}
+                {% sw_include '@Storefront/storefront/layout/navigation/navigation.html.twig' %}
+            {% endblock %}
+        </div>
+    {% endblock %}
+    {{ parent() }}
+{% endblock %}
+{% block layout_header_search %}{% endblock %}
+{% block layout_header_search_toggle %}
+    <div class="col register-col">
+        <div class="pm-register">
+            <a href="{{ path('frontend.account.login.page') }}"
+               title="{{ "account.loginSubmit"|trans|striptags }}"
+               class="account-menu-login-button">
+                {{ "account.loginSubmit"|trans|sw_sanitize }}
+            </a>
+        </div>
+    </div>
+{% endblock %}
